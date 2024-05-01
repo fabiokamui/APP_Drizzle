@@ -1,6 +1,7 @@
-import { Button, TextInput, View, Text } from "react-native-web";
+import { Button, TextInput, View, Text, TouchableOpacity } from "react-native-web";
 import Resultado from "./Resultado";
 import { useState } from "react";
+import styles from "./Style";
 
 export default function Form()
 {
@@ -22,7 +23,7 @@ export default function Form()
             setHeight(null);
             setWeigth(null);
             setMensagem('Seu IMC é igual');
-            setButtonTitle('Caucular Novamente');
+            setButtonTitle('Calcular Novamente');
             return;
         }
 
@@ -32,25 +33,36 @@ export default function Form()
     }
 
     return (
-        <View>
-            <View>
-                <Text>Altura:</Text>
+        <View style={styles.formContext}>
+            <View style={styles.form}> 
+                <Text style={styles.form}>Altura:</Text>
                 <TextInput 
-                    placeholder="1,75" 
+                    placeholder="0,00" 
                     keyboardType="numeric"
                     onChangeText={setHeight}
                     value={height}
+                    style={styles.formInput}
                 />
 
-                <Text>Peso:</Text>
+                <Text style={styles.form}>Peso:</Text>
                 <TextInput 
-                    placeholder="68,3 (Kg)"    
+                    placeholder="00,0 (Kg)"    
                     keyboardType="numeric"
                     onChangeText={setWeigth}
                     value={weight}
-                    />
+                    style={styles.formInput}
+                />
 
                 <Button title={buttonTitle} onPress={() => validarImc()}/>
+
+                <TouchableOpacity
+                    title={buttonTitle}
+                    style={styles.formButtom}
+                    onPress={() => validarImc()}
+                >
+                    <Text style={styles.formButtomText}>{buttonTitle}</Text>
+                </TouchableOpacity>
+
             </View>
         
         <Resultado mensagem={mensagem} imc={imc}></Resultado>
