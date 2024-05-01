@@ -1,4 +1,4 @@
-import { Button, TextInput, View, Text, TouchableOpacity } from "react-native-web";
+import { Button, TextInput, View, Text, TouchableOpacity } from "react-native";
 import Resultado from "./Resultado";
 import { useState } from "react";
 import styles from "./Style";
@@ -57,10 +57,10 @@ export default function Form()
 
                 <TouchableOpacity
                     title={buttonTitle}
-                    style={styles.formButtom}
+                    style={styles.formButton}
                     onPress={() => validarImc()}
                 >
-                    <Text style={styles.formButtomText}>{buttonTitle}</Text>
+                    <Text style={styles.formButtonText}>{buttonTitle}</Text>
                 </TouchableOpacity>
 
             </View>
